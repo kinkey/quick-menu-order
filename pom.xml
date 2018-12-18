@@ -20,6 +20,8 @@
         <postgres.password>default</postgres.password>
         <postgres.db.name>quickorder</postgres.db.name>
         <postgres.db.schema>quickorder</postgres.db.schema>
+        <postgres.db.hostname>localhost</postgres.db.hostname>
+        <postgres.db.port>5432</postgres.db.port>
     </properties>
 
     <dependencies>
@@ -69,7 +71,7 @@
                 <configuration>
                     <user>${postgres.username}</user>
                     <password>${postgres.password}</password>
-                    <url>jdbc:postgresql://localhost:5432/${postgres.db.name}?currentSchema=${postgres.db.schema}</url>
+                    <url>jdbc:postgresql://${postgres.db.hostname}:${postgres.db.port}/${postgres.db.name}?currentSchema=${postgres.db.schema}</url>
                     <driver>org.postgresql.Driver</driver>
                     <schemas>
                         <schema>${postgres.db.schema}</schema>
