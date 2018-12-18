@@ -58,6 +58,29 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>5.2.1</version>
+                <configuration>
+                    <user>postgres</user>
+                    <password>default</password>
+                    <url>jdbc:postgresql://localhost:5432/quickorder</url>
+                    <driver>org.postgresql.Driver</driver>
+                    <schemas>
+                        <schema>quickorder</schema>
+                    </schemas>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>clean</goal>
+                            <goal>migrate</goal>
+                        </goals>
+                        <phase>verify</phase>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
