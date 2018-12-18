@@ -65,7 +65,7 @@
                 <configuration>
                     <user>postgres</user>
                     <password>default</password>
-                    <url>jdbc:postgresql://localhost:5432/quickorder</url>
+                    <url>jdbc:postgresql://localhost:5432/quickorder?currentSchema=quickorder</url>
                     <driver>org.postgresql.Driver</driver>
                     <schemas>
                         <schema>quickorder</schema>
