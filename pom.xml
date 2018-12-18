@@ -16,6 +16,10 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <postgres.username>postgres</postgres.username>
+        <postgres.password>default</postgres.password>
+        <postgres.db.name>quickorder</postgres.db.name>
+        <postgres.db.schema>quickorder</postgres.db.schema>
     </properties>
 
     <dependencies>
@@ -63,12 +67,12 @@
                 <artifactId>flyway-maven-plugin</artifactId>
                 <version>5.2.1</version>
                 <configuration>
-                    <user>postgres</user>
-                    <password>default</password>
-                    <url>jdbc:postgresql://localhost:5432/quickorder?currentSchema=quickorder</url>
+                    <user>${postgres.username}</user>
+                    <password>${postgres.password}</password>
+                    <url>jdbc:postgresql://localhost:5432/${postgres.db.name}?currentSchema=${postgres.db.schema}</url>
                     <driver>org.postgresql.Driver</driver>
                     <schemas>
-                        <schema>quickorder</schema>
+                        <schema>${postgres.db.schema}</schema>
                     </schemas>
                 </configuration>
                 <executions>
