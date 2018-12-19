@@ -12,6 +12,7 @@
     <artifactId>quick-order</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>quickorder</name>
+
     <description>Quick order project.</description>
 
     <properties>
