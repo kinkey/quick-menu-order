@@ -2,9 +2,6 @@ package com.quickorder.entity;
 
 import javax.persistence.*;
 
-/**
- * Created by bci on 12/18/18 at 3:32 PM
- */
 @Entity
 @Table(name = "ingredients")
 public class Ingredient {
@@ -17,6 +14,11 @@ public class Ingredient {
     @Column(name = "ingredient_name")
     private String ingredientName;
 
+    @Column(name = "description")
+    private String description;
+
+    @Column(name = "price_when_extra")
+    private String priceWhenExtra;
 
     public Ingredient() {
     }
