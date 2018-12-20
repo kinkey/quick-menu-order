@@ -10,14 +10,19 @@ alter table ingredients
   owner to postgres;
 
 create table categories(
-  id bigserial not null constraint categories_pkey primary key
+  id bigserial not null constraint categories_pkey primary key,
+  category_name varchar (100) not null,
+  category_description varchar (255)
 );
 
 alter table categories
   owner to postgres;
 
 create table sub_categories(
-  id bigserial not null constraint sub_categories_pkey primary key
+  id bigserial not null constraint sub_categories_pkey primary key,
+  sub_category_name varchar (100),
+  sub_category_description varchar(255),
+  category_id bigserial NOT NULL
 );
 
 alter table sub_categories
