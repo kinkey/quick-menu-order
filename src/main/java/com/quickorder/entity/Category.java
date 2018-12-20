@@ -2,43 +2,25 @@ package com.quickorder.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Entity
 @Table(name = "categories")
-public class Category {
+public class Category extends BaseEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "seq_gen")
-    @SequenceGenerator(name = "seq_gen", sequenceName = "seq_categories")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = SEQ_GENERATOR)
+    @SequenceGenerator(name = SEQ_GENERATOR, sequenceName = SEQ_CATEGORY)
     private Long id;
 
-    @Column(name = "category_name")
+    @Column(name = NAME)
     private String name;
 
-    @Column(name = "category_description")
+    @Column(name = DESCRIPTION)
     private String description;
 
-    public Long getId() {
-        return id;
-    }
+    @OneToMany(mappedBy = "category")
+    private List<SubCategory> subCategoryList;
 
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Category() {
-    }
 }

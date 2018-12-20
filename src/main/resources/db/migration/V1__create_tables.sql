@@ -31,7 +31,7 @@ alter table sub_categories
 create table products
 (
     id bigserial NOT NULL,
-    sub_category_id bigserial NOT NULL,
+    subCategory_id bigserial NOT NULL,
     ingredient_id bigserial NOT NULL,
     product_name character varying(100) NOT NULL,
     product_description character varying(255),
@@ -42,7 +42,7 @@ create table products
         REFERENCES quickorder.ingredients (id) MATCH FULL
         ON UPDATE NO ACTION
         ON DELETE NO ACTION,
-    CONSTRAINT sub_category_fkey FOREIGN KEY (sub_category_id)
+    CONSTRAINT sub_category_fkey FOREIGN KEY (subCategory_id)
         REFERENCES quickorder.sub_categories (id) MATCH FULL
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
