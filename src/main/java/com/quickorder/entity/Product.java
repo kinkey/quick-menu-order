@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 public class Product extends BaseEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator =SEQ_GENERATOR )
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = SEQ_GENERATOR)
     @SequenceGenerator(name = SEQ_GENERATOR, sequenceName = SEQ_PRODUCT)
     private Long id;
 

@@ -26,5 +26,4 @@ public class SubCategory extends BaseEntity {
     private String description;
 
 
-
 }

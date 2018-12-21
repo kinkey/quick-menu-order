@@ -7,10 +7,8 @@ public class BaseEntity {
     protected static final String DESCRIPTION = "description";
     protected static final String SEQ_INGREDIENT = SEQ + "ingredient";
     protected static final String SEQ_CATEGORY = SEQ + "category";
-    protected static final String SEQ_PRODUCT= SEQ + "product";
+    protected static final String SEQ_PRODUCT = SEQ + "product";
     protected static final String SEQ_SUBCATEGORY = SEQ + "sub_category";
     protected static final String SEQ_GENERATOR = "seq_gen";
-
-
 
 }
