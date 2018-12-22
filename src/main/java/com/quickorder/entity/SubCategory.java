@@ -1,13 +1,29 @@
 package com.quickorder.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
-/**
- * Created by bci on 12/18/18 at 3:32 PM
- */
 @Entity
 @Table(name = "sub_categories")
-public class SubCategory {
+public class SubCategory extends BaseEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = SEQ_GENERATOR)
+    @SequenceGenerator(name = SEQ_GENERATOR, sequenceName = SEQ_SUBCATEGORY)
+    private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "subCategory_id")
+    private Category category;
+
+    @OneToMany(mappedBy = "subCategory")
+    private List<Product> productList;
+
+    @Column(name = NAME)
+    private String name;
+
+    @Column(name = DESCRIPTION)
+    private String description;
+
 
 }

@@ -1,14 +1,15 @@
 package com.quickorder.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name = "ingredients")
-public class Ingredient extends BaseEntity {
+@Table(name = "categories")
+public class Category extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = SEQ_GENERATOR)
-    @SequenceGenerator(name = SEQ_GENERATOR, sequenceName = SEQ_INGREDIENT)
+    @SequenceGenerator(name = SEQ_GENERATOR, sequenceName = SEQ_CATEGORY)
     private Long id;
 
     @Column(name = NAME)
@@ -17,8 +18,8 @@ public class Ingredient extends BaseEntity {
     @Column(name = DESCRIPTION)
     private String description;
 
-    @Column(name = "price_when_extra")
-    private String priceWhenExtra;
+    @OneToMany(mappedBy = "category")
+    private List<SubCategory> subCategoryList;
 
 
 }
