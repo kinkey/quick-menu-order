@@ -2,10 +2,11 @@ package com.quickorder.entity;
 
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
-@Entity
+@Entity(name = "Product")
 @Table(name = "products")
 public class Product extends BaseEntity {
 
@@ -26,7 +27,15 @@ public class Product extends BaseEntity {
     @Column(name = "quantity")
     private BigDecimal quantity;
 
-    private Ingredient ingredients;
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinTable(name = "products_ingredients",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "ingredient_id")
+    )
+    private List<Ingredient> ingredientList = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "subCategory_id")

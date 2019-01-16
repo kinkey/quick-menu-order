@@ -28,6 +28,15 @@ create table sub_categories(
 alter table sub_categories
   owner to postgres;
 
+create table products_ingredients
+(
+    product_id bigserial NOT NULL,
+    ingredient_id bigserial NOT NULL
+);
+
+alter table products_ingredients
+  owner to postgres;
+
 create table products
 (
     id bigserial NOT NULL,
@@ -38,10 +47,6 @@ create table products
     price numeric,
     quantity numeric,
     CONSTRAINT products_pkey PRIMARY KEY (id),
-    CONSTRAINT ingredients_fkey FOREIGN KEY (ingredient_id)
-        REFERENCES quickorder.ingredients (id) MATCH FULL
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION,
     CONSTRAINT sub_category_fkey FOREIGN KEY (subCategory_id)
         REFERENCES quickorder.sub_categories (id) MATCH FULL
         ON UPDATE NO ACTION
@@ -50,3 +55,5 @@ create table products
 
 alter table products
   owner to postgres;
+
+
