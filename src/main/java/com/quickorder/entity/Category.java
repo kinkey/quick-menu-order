@@ -8,8 +8,7 @@ import java.util.List;
 public class Category extends BaseEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = SEQ_GENERATOR)
-    @SequenceGenerator(name = SEQ_GENERATOR, sequenceName = SEQ_CATEGORY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @Column(name = NAME)
