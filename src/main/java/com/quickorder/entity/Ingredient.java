@@ -9,8 +9,7 @@ import java.util.List;
 public class Ingredient extends BaseEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = SEQ_GENERATOR)
-    @SequenceGenerator(name = SEQ_GENERATOR, sequenceName = SEQ_INGREDIENT)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @Column(name = NAME)
@@ -19,7 +18,7 @@ public class Ingredient extends BaseEntity {
     @Column(name = DESCRIPTION)
     private String description;
 
-    @Column(name = "price_when_extra")
+    @Column(name = PRICE_WHEN_EXTRA)
     private String priceWhenExtra;
 
     @ManyToMany(mappedBy = "ingredientList")

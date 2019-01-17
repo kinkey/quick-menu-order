@@ -6,13 +6,12 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity(name = "Product")
+@Entity
 @Table(name = "products")
 public class Product extends BaseEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = SEQ_GENERATOR)
-    @SequenceGenerator(name = SEQ_GENERATOR, sequenceName = SEQ_PRODUCT)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @Column(name = NAME)
@@ -21,10 +20,10 @@ public class Product extends BaseEntity {
     @Column(name = DESCRIPTION)
     private String description;
 
-    @Column(name = "price")
+    @Column(name = PRICE)
     private BigDecimal price;
 
-    @Column(name = "quantity")
+    @Column(name = QUANTITY)
     private BigDecimal quantity;
 
     @ManyToMany(cascade = {
