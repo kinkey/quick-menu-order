@@ -22,7 +22,7 @@ import static org.junit.Assert.assertThat;
 @RunWith(SpringRunner.class)
 @DataJpaTest
 @TestPropertySource(locations = "classpath:application-test.properties")
-class CategoryRepositoryTest {
+public class CategoryRepositoryTest {
 
     static final String TEST_CATEGORY_NAME = "testCategoryName";
     static final String TEST_CATEGORY_DESCRIPTION = "someTestCategoryDescription";
