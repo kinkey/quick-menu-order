@@ -8,8 +8,7 @@ import java.util.List;
 public class SubCategory extends BaseEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = SEQ_GENERATOR)
-    @SequenceGenerator(name = SEQ_GENERATOR, sequenceName = SEQ_SUBCATEGORY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -25,5 +24,39 @@ public class SubCategory extends BaseEntity {
     @Column(name = DESCRIPTION)
     private String description;
 
+    public Long getId() {
+        return id;
+    }
 
+    public Category getCategory() {
+        return category;
+    }
+
+    public List<Product> getProductList() {
+        return productList;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public void setProductList(List<Product> productList) {
+        this.productList = productList;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
